@@ -102,7 +102,8 @@ if st.session_state.search_active:
                 unsafe_allow_html=True
             )
             if pd.notna(row['Image URL']):
-                st.image(row['Image URL'], caption=row['Title'], use_column_width=True)
+                st.image(row['Image URL'], caption=row['Title'], use_container_width=True)  # ✅ 수정 부분
+
 else:
     if filtered_df.empty:
         st.warning("선택한 주차에 해당하는 데이터가 없습니다.")
@@ -120,6 +121,6 @@ else:
             unsafe_allow_html=True
         )
         if pd.notna(selected_row['Image URL']):
-            st.image(selected_row['Image URL'], caption=selected_row['Title'], use_column_width=True)
+            st.image(selected_row['Image URL'], caption=selected_row['Title'], use_container_width=True)  # ✅ 수정 부분
 
         st.write(f"페이지 {st.session_state.page_number} / {max_page}")
